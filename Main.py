@@ -4,7 +4,7 @@ import pygetwindow as gw
 import tkinter as tk
 from tkinter import ttk
 import time
-import os
+import sys, os
 import keyboard
 import threading
 from datetime import datetime, timezone
@@ -13,29 +13,37 @@ import pytz
 
 stop_macro_flag = threading.Event()
 
-# Paths
-data_dir = os.path.join("data")
-esc_dir = os.path.join(data_dir,"esc")
-esc_mark = os.path.join(esc_dir,"Invite_Friends.png")
-chat_dir = os.path.join(data_dir,"chat")
-chat_close_dir = os.path.join(chat_dir,'chat_close.png')
-chat_open_dir = os.path.join(chat_dir,"chat_open.png")
-leader_dir = os.path.join(data_dir,"leaderboard")
-leader_png = os.path.join(leader_dir,"image.png")
-stock_dir = os.path.join(data_dir,"stock")
-NoStock_png = os.path.join(stock_dir,"No_Stock.png")
-No_Stock_honey = os.path.join(stock_dir,"No_Stock_honey.png")
-Red_Cross_dir = os.path.join(data_dir,"Red Cross")
-Close_Button_png = os.path.join(Red_Cross_dir,"Close_Button.png")
-odds_png = os.path.join(data_dir,"odds.png")
-Fail_safe_dir = os.path.join(data_dir,"Fail_Safe")
-Restock_Robux_png = os.path.join(Fail_safe_dir,"Restock_Robux.png")
-robux_store_icon = os.path.join(Fail_safe_dir,"robux_store_icon.png")
-robux_store_icon_honey = os.path.join(Fail_safe_dir,"robux_store_icon_honey.png")
-Settings = os.path.join(Fail_safe_dir,"Settings.png")
-Shop = os.path.join(Fail_safe_dir,"Shop.png")
-egg_dir = os.path.join(data_dir,"egg")
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller .exe"""
+    try:
+        base_path = sys._MEIPASS  # PyInstaller extracts to temp here
+    except Exception:
+        base_path = os.path.abspath(".")
 
+    return os.path.join(base_path, relative_path)
+
+# Paths
+data_dir = resource_path("data")
+esc_dir = resource_path("data/esc")
+esc_mark = resource_path("data/esc/Invite_Friends.png")
+chat_dir = resource_path("data/chat")
+chat_close_dir = resource_path('data/chat/chat_close.png')
+chat_open_dir = resource_path("data/chat/chat_open.png")
+leader_dir = resource_path("data/leaderboard")
+leader_png = resource_path("data/leaderboard/image.png")
+stock_dir = resource_path("data/stock")
+NoStock_png = resource_path("data/stock/No_Stock.png")
+No_Stock_honey = resource_path("data/stock/No_Stock_honey.png")
+Red_Cross_dir = resource_path("data/Red Cross")
+Close_Button_png = resource_path("data/Red Cross/Close_Button.png")
+odds_png = resource_path("data/odds.png")
+Fail_safe_dir = resource_path("data/Fail_Safe")
+Restock_Robux_png = resource_path("data/Fail_Safe/Restock_Robux.png")
+robux_store_icon = resource_path("data/Fail_Safe/robux_store_icon.png")
+robux_store_icon_honey = resource_path("data/Fail_Safe/robux_store_icon_honey.png")
+Settings = resource_path("data/Fail_Safe/Settings.png")
+Shop = resource_path("data/Fail_Safe/Shop.png")
+egg_dir = resource_path("data/egg")
 # Running Func
 global Is_Buying_Seeds, Is_Buying_Gears, Is_Buying_Eggs, Is_Buying_Honey
 Is_Buying_Seeds = False
