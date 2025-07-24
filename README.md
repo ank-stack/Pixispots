@@ -7,7 +7,7 @@ It's bundled as a single `.exe` file — no need to install Python or any librar
 
 ## ⚙️ Installation
 
-1. **Download the latest `.zip` file** from the [Releases](#) section.  
+1. **Download the latest `.zip` file** from the [Releases](#https://github.com/ank-stack/Pixispots/releases) section.  
    *(Note: You may need to temporarily turn off Windows Defender to prevent false warnings.)*
 2. **Extract the archive**, and you will see:
    - `main.exe` – The macro launcher
